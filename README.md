@@ -22,7 +22,7 @@ Run "server_run.sh" to get your backend server up and running.
 1. Users will post Memes by providing these inputs<br />
    --Name of the person posting the meme<br />
    --Caption for the Meme<br />
-   --URL of the Meme image
+   --URL of the Meme image<br />
 
 2. Users will view the latest 100 memes posted<br />
   --If they post a new meme, it will get listed. Note that these submitted memes will be shown one below the other.<br />
@@ -34,26 +34,26 @@ Run "server_run.sh" to get your backend server up and running.
 3. The interaction between the frontend and backend shall be based on a REST API with support for the below 3 endpoints:
 
 Endpoint to send a meme to the backend
-  --HTTP Method - POST
-  --Endpoint - /memes
-  --Json Body contains these inputs:
-    - name, url, caption
-  --The backend should allocate a unique id for the meme and return it as a json response.
-  --Example request:
-  `curl --location --request POST 'http://localhost:8081/memes' --header 'Content-Type: application/json' --data '{"name": "parth jalan", "caption": "Is this a meme?", "url": "https://urlme.me/hello/typed_a_url/made_a_meme.jpg"}'`
-
-Endpoint to fetch the latest 100 memes created from the backend
-  --HTTP Method - GET
-  --Endpoint - /memes
-  --Error:
-    - If there are no memes available, an empty array shall be returned.
-  --Example request: <br />
-  `curl --location --request GET 'http://localhost:8081/memes'`
-
-Endpoint to specify a particular id (identifying the meme) to fetch a single Meme
-  --HTTP Method - GET
-  --Endpoint - /memes/<id>
-  --Error:
-    - If a meme with that Id doesn’t exist, a 404 HTTP response code should be returned.
+  --HTTP Method - POST<br />
+  --Endpoint - /memes<br />
+  --Json Body contains these inputs:<br />
+    - name, url, caption<br />
+  --The backend should allocate a unique id for the meme and return it as a json response.<br />
   --Example request:<br />
-  `curl --location --request GET 'http://localhost:8081/memes/<id>'`
+  `curl --location --request POST 'http://localhost:8081/memes' --header 'Content-Type: application/json' --data '{"name": "parth jalan", "caption": "Is this a meme?", "url": "https://urlme.me/hello/typed_a_url/made_a_meme.jpg"}'`<br />
+
+Endpoint to fetch the latest 100 memes created from the backend<br />
+  --HTTP Method - GET<br />
+  --Endpoint - /memes<br />
+  --Error:<br />
+    - If there are no memes available, an empty array shall be returned.<br />
+  --Example request: <br />
+  `curl --location --request GET 'http://localhost:8081/memes'`<br />
+
+Endpoint to specify a particular id (identifying the meme) to fetch a single Meme<br />
+  --HTTP Method - GET<br />
+  --Endpoint - /memes/&lt;id&gt;<br />
+  --Error:<br />
+    - If a meme with that Id doesn’t exist, a 404 HTTP response code should be returned.<br />
+  --Example request:<br />
+  `curl --location --request GET 'http://localhost:8081/memes/<id>'`<br />
